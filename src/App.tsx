@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { CollectionItem } from './collectionItem';
 
+import Button from '@material-ui/core/Button';
 
 const App: React.FC = () => {
   return (
@@ -17,14 +18,9 @@ const App: React.FC = () => {
             description={"test"}
           />
         </div>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Button variant="contained" href="https://reactjs.org" target="_blank" color="primary">
           Learn React
-        </a>
+        </Button>
       </header>
     </div>
   );
