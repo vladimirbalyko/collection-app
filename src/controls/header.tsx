@@ -5,7 +5,7 @@ export const Header = () => {
         <div id="header-wrapper">
             <div id="header" className="container">
                 <div id="logo">
-                    <h1><a href="#">Collection APP</a></h1>
+                    <h1><a href={window.location.origin.toString()}>Collection APP</a></h1>
                     <p>Some text</p>
                 </div>
             </div>
