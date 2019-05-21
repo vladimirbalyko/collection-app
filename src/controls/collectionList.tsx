@@ -1,5 +1,5 @@
 import React from 'react';
-import { CollectionItem } from './collectionItem';
+import CollectionItem from './collectionItem';
 import { ICollectionItem } from '../models/collectionItem';
 import styled from 'styled-components';
 
@@ -40,7 +40,12 @@ export class CollectionList extends React.Component<{}, {}> {
                 {
                     this.state.items.map((item, index) => {
                         return (
-                            <CollectionItem key={index} url={item.url} title={item.title} description={item.description} id={item.id}/>
+                            <CollectionItem 
+                                key={index} 
+                                url={item.url}
+                                title={item.title} 
+                                description={item.description} 
+                                id={item.id}/>
                         );
                     })
                 }

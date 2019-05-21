@@ -1,60 +1,67 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { makeStyles } from '@material-ui/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-import styled from 'styled-components';
-import { ICollectionItem } from '../models/collectionItem';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { ICollectionItem } from "../models/collectionItem";
 
-const Context = styled.div`
-    display: flex;
-    align-items: center;
+const useStyles = makeStyles({
+    card: {
+        width: "20em",
+        marginBottom: "2.5em",
+        marginRight: "2.5em",
+        maxHeight: "20em"
+    },
+    media: {
+        height: 140,
+    },
+});
 
-    margin-bottom: 2.5em;
-    margin-right: 2.5em;
-    padding-left: 1em;
+interface ICollectionItemInternal extends ICollectionItem, RouteComponentProps<any> {}
 
-    /* Border */
-    border-style: solid;
-    border-color: #ddd;
-    border-width: 1px;
-    border-radius: 1em;
+export const CollectionItem = (props: ICollectionItemInternal) => {
+    const { url, title, description, id } = props;
+    const classes = useStyles();
 
-    &:hover {
-        /* color: #ff0; */
-        background: #fc0;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        /* padding: 10px; */
+    useEffect(() => {
+    });
+
+    const onClick = () => {
+        props.history.push("/item");
     }
 
-    img {
-        width: 4em;
-    }
-`;
-
-const CollectionInfo = styled.div`
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        padding-left: 0.8em;
-        width: 12em;
-`;
-
-const Title = styled.span`
-    text-align: center;
-    font-weight: 600;
-`;
-
-export const CollectionItem = (props: ICollectionItem) => {
-    const { url, title, description } = props;
-
-    return (
-        <Context>
-                <div>
-                    <img src={url} alt="" />
-                </div>
-                <CollectionInfo>
-                    <Title>{title}</Title>
-                    {description && <span>{description}</span>}
-                </CollectionInfo>
-        </Context>
-
-    );
+    return (<Card className={classes.card}>
+        <CardActionArea onClick={onClick}>
+            <CardMedia
+                className={classes.media}
+                image={url}
+                title={title}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {title}
+                </Typography>
+                <Typography component="p">
+                    {description}
+                </Typography>
+            </CardContent>
+        </CardActionArea>
+        <CardActions>
+            <Button size="small" color="primary">
+                Share
+            </Button>
+            <Button size="small" color="primary" onClick={onClick}>
+                Learn More
+           </Button>
+        </CardActions>
+    </Card>);
 }
+
+export default withRouter(CollectionItem);
+
