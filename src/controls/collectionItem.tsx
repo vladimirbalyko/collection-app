@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { ICollectionItem } from '../models/collectionItem';
 
 const Context = styled.div`
     display: flex;
@@ -41,24 +42,18 @@ const Title = styled.span`
     font-weight: 600;
 `;
 
-interface ICollectionItem {
-    url: string;
-    title: string;
-    description?: string;
-}
-
 export const CollectionItem = (props: ICollectionItem) => {
     const { url, title, description } = props;
 
     return (
         <Context>
-            <div>
-                <img src={url} alt="" />
-            </div>
-            <CollectionInfo>
-                <Title>{title}</Title>
-                {description && <span>{description}</span>}
-            </CollectionInfo>
+                <div>
+                    <img src={url} alt="" />
+                </div>
+                <CollectionInfo>
+                    <Title>{title}</Title>
+                    {description && <span>{description}</span>}
+                </CollectionInfo>
         </Context>
 
     );
