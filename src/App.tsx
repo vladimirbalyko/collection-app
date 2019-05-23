@@ -8,7 +8,7 @@ import { Menu } from './controls/menu';
 import { MainContent } from './controls/mainContent';
 import { CollectionList } from './controls/collectionList';
 import { About } from './controls/about';
-import { CollectionItemFull } from './controls/collectionItemFull';
+import { CollectionItemDetails } from './controls/collectionItemDetails';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <MainContent>
         <Route exact path="/" component={CollectionList} />
         <Route path="/about" component={About} />
-        <Route path="/item" component={CollectionItemFull} />
+        <Route path="/item" component={CollectionItemDetails} />
       </MainContent>
     </Router>
   );
