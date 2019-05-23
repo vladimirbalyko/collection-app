@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <MainContent>
         <Route exact path="/" component={CollectionList} />
         <Route path="/about" component={About} />
-        <Route path="/item" component={CollectionItemDetails} />
+        <Route path="/item/:id" component={CollectionItemDetails} />
       </MainContent>
     </Router>
   );

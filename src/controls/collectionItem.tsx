@@ -33,7 +33,7 @@ export const CollectionItem = (props: ICollectionItemInternal) => {
     });
 
     const onClick = () => {
-        props.history.push("/item");
+        props.history.push(`/item/${id}`);
     }
 
     return (<Card className={classes.card}>
