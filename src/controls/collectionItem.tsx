@@ -7,9 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { ICollectionItem } from "../models/collectionItem";
+import { ICollectionItemInternal } from "../models/iCollectionItemInternal";
 
 const useStyles = makeStyles({
     card: {
@@ -22,8 +21,6 @@ const useStyles = makeStyles({
         height: 140,
     },
 });
-
-interface ICollectionItemInternal extends ICollectionItem, RouteComponentProps<any> {}
 
 export const CollectionItem = (props: ICollectionItemInternal) => {
     const { url, title, description, id } = props;

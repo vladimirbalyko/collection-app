@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ActionButtons from './floatingActionButtons';
 import { TextField } from '@material-ui/core';
 import cloneDeep from 'lodash/cloneDeep';
-import { RouteComponentProps } from 'react-router';
+import { ICollectionItemInternal } from '../models/iCollectionItemInternal';
 
 const Context = styled.div`
     display: flex;
@@ -45,8 +45,6 @@ const Title = styled.span`
     margin-bottom: 2em;
 `;
 
-interface ICollectionItemInternal extends ICollectionItem, RouteComponentProps<any> {}
-
 export class CollectionItemDetails extends React.Component<ICollectionItemInternal>{
     state = {
         item: {} as ICollectionItem,
@@ -59,7 +57,7 @@ export class CollectionItemDetails extends React.Component<ICollectionItemIntern
             title: "Title1", url: "https://freepngimg.com/thumb/mario/20698-7-mario-transparent-background.png",
             description: "Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 Description1 ", id: 1
         } as ICollectionItem;
-        //this.props.match.params.id;
+        //console.log(this.props.match.params.id);
         this.setState({ item: initItem, tempItem: cloneDeep(initItem) });
     }
 
