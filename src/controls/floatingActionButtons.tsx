@@ -16,13 +16,13 @@ const Context = styled.div`
     text-align: right;
 `;
 
-function FloatingActionButtons(props: any) {
+const FloatingActionButtons = (props: any) => {
   const { classes } = props;
 
   return (
     <Context>
       {
-        !props.isEditing && 
+        !props.isEditing &&  
         <Fab color="secondary" aria-label="Edit" className={classes.fab} onClick={() => props.onEditClick()}>
             <Icon>edit_icon</Icon>
         </Fab>
